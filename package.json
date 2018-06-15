@@ -1,0 +1,17 @@
+{
+  "name": "@rabbitsm/rsm",
+  "version": "0.0.1",
+  "description": "Rabbit Software Manager CLI",
+  "main": "index.js",
+  "repository": "https://github.com/rabbitsm/rsm",
+  "author": "maddhruv <dhruvjainpenny@gmail.com>",
+  "license": "Apache-2.0",
+  "bin": {
+    "rsm": "./index.js"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.15.1"
+  }
+}

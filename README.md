@@ -1,2 +1,3 @@
 # rsm
-rsm cli tool
+
+Rabbit Software Manager cli tool
