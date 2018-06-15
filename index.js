@@ -2,7 +2,7 @@
 const program = require('commander')
 
 // commands
-const { init, publish } = require('./cli')
+const { init, publish, setup } = require('./cli')
 
 var { version } = require('./utils/version')
 
@@ -17,5 +17,10 @@ program
 program
   .command('publish')
   .action(publish)
+
+program
+  .command('setup')
+  .alias('s')
+  .action(setup)
 
 program.parse(process.argv)
