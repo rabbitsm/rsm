@@ -2,8 +2,7 @@ const fs = require('fs')
 const os = require('os')
 const co = require('co')
 const prompt = require('co-prompt')
-
-var osFilePath = `${os.homedir()}/.rsm`
+const { osFilePath } = require('../../helpers/defaults')
 
 module.exports = function() {
   if(fs.existsSync(osFilePath + '/rsm.json')){
