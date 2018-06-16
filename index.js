@@ -23,7 +23,7 @@ program
   .action(setup)
 
 program
-  .command('install <name>')
+  .command('install <name> [version]')
   .alias('i')
   .action(install)
 
