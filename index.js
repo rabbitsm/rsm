@@ -2,7 +2,7 @@
 const program = require('commander')
 
 // commands
-const { init, publish, setup, install } = require('./cli')
+const { init, publish, setup, install, find } = require('./cli')
 
 var { version } = require('./utils/version')
 
@@ -26,5 +26,10 @@ program
   .command('install <name> [version]')
   .alias('i')
   .action(install)
+
+program
+  .command('find <name>')
+  .alias('f')
+  .action(find)
 
 program.parse(process.argv)
