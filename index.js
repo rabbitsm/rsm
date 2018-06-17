@@ -15,6 +15,7 @@ program
 
 program
   .command('publish')
+  .option('-c, --config <file>', 'custom config file')
   .action(publish)
 
 program

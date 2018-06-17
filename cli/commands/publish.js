@@ -2,9 +2,10 @@ const fs = require('fs')
 const request = require('superagent')
 const authorer = require('authorer')
 
-module.exports = function() {
-  if(fs.existsSync('rsm.json')) {
-    fs.readFile('./rsm.json', (err, data) => {
+module.exports = function(cmd) {
+  var configFile = cmd.config || './rsm.json'
+  if(fs.existsSync(configFile)) {
+    fs.readFile(configFile, (err, data) => {
       if (err) throw err
       var rsmData = JSON.parse(data)
       if(rsmData.author) rsmData.author = authorer(rsmData.author)
