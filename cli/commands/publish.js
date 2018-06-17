@@ -1,6 +1,7 @@
 const fs = require('fs')
 const request = require('superagent')
 const authorer = require('authorer')
+const { apiEndPoint } = require('../../helpers/defaults')
 
 module.exports = function(cmd) {
   var configFile = cmd.config || './rsm.json'
@@ -20,7 +21,7 @@ module.exports = function(cmd) {
 
       console.log(`Publishing ${rsmData.name} version ${rsmData.version}`)
       request
-        .post('http://localhost:7000/item')
+        .post(`${apiEndPoint}/item`)
         .send(rsmData)
         .set('accept', 'json')
         .end((err, res) => {

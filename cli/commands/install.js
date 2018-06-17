@@ -1,9 +1,10 @@
 const shell = require('shelljs')
 const request = require('superagent')
+const { apiEndPoint } = require('../../helpers/defaults')
 
 module.exports = function(name, version) {
 const { os, arch } = require('../../helpers/os')
-  var url = version ? `http://localhost:7000/item/${name}/${version}` : `http://localhost:7000/item/${name}`
+  var url = version ? `${apiEndPoint}/item/${name}/${version}` : `${apiEndPoint}/item/${name}`
   request
     .get(url)
     .set('download', true)

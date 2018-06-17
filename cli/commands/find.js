@@ -1,8 +1,9 @@
 const request = require('superagent')
+const { apiEndPoint } = require('../../helpers/defaults')
 
 module.exports = function (name) {
   request
-    .get(`http://localhost:7000/list/${name}`)
+    .get(`${apiEndPoint}/list/${name}`)
     .end((err, res) => {
       console.log(`RSM has found ${res.body.count} versions of ${name}: `)
       console.log(`${name} has been downloaded over ${res.body.downloads} times`)
