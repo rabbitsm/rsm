@@ -6,6 +6,10 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
+authorer@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/authorer/-/authorer-0.0.2.tgz#17cc37f7e3240a83f6964396a79549fc7cdd21c2"
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
