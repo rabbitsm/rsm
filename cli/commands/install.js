@@ -10,7 +10,7 @@ const { os, arch } = require('../../helpers/os')
     .end((err, res) => {
       if (err) throw err
       console.log(`Installing ${res.body.ear}`)
-      var commands = res.body.scripts[os]
+      commands = res.body.scripts[os] ? res.body.scripts[os] : res.body.scripts['*']
       commands.forEach(command => {
         shell.exec(command)
       })
