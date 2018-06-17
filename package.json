@@ -1,6 +1,6 @@
 {
   "name": "@rabbitsm/rsm",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Rabbit Software Manager CLI",
   "main": "index.js",
   "repository": "https://github.com/rabbitsm/rsm",
