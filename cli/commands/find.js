@@ -4,8 +4,9 @@ module.exports = function (name) {
   request
     .get(`http://localhost:7000/list/${name}`)
     .end((err, res) => {
-      console.log(`RSM has found ${res.body.length} versions of ${name}: `)
-      res.body.forEach(version => {
+      console.log(`RSM has found ${res.body.count} versions of ${name}: `)
+      console.log(`${name} has been downloaded over ${res.body.downloads} times`)
+      res.body.data.forEach(version => {
         console.log(version.ear)
       });
       console.log('--------')
