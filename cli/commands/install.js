@@ -13,6 +13,7 @@ const { os, arch } = require('../../helpers/os')
       console.log(`Installing ${res.body.ear}`)
       commands = res.body.scripts[os] ? res.body.scripts[os] : res.body.scripts['*']
       commands.forEach(command => {
+        console.log(command)
         shell.exec(command)
       })
     })
