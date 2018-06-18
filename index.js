@@ -31,6 +31,7 @@ program
 program
   .command('find <name>')
   .alias('f')
+  .option('-l --list', 'list all the available versions')
   .action(find)
 
 program.parse(process.argv)
