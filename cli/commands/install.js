@@ -18,14 +18,13 @@ const { os, arch } = require('../../helpers/os')
       var tasksList = []
       commands.forEach(command => {
         tasksList.push({
-          title: command,
+          title: chalk.yellowBright(command),
           task: () => shell.exec(command, {silent: true})
          })
-        // shell.exec(command)
       })
       const tasks = new Listr(tasksList)
-      tasks.run().catch(err => {
-        console.error(err)
-      })
+      tasks.run()
+        .then(() => console.log(chalk.greenBright(`Successfully install ${res.body.ear}`)))
+        .catch(err => console.error(err))
     })
 }
