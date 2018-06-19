@@ -15,12 +15,11 @@ const { os, arch } = require('../../helpers/os')
       if (err) throw err
       console.log(chalk.blueBright(`Installing ${res.body.ear}`))
       commands = res.body.scripts[os] ? res.body.scripts[os] : res.body.scripts['*']
-      var tasksList = []
-      commands.forEach(command => {
-        tasksList.push({
+      var tasksList = commands.map(command => {
+        return {
           title: chalk.yellowBright(command),
           task: () => shell.exec(command, {silent: true})
-         })
+        }
       })
       const tasks = new Listr(tasksList)
       tasks.run()
