@@ -1,7 +1,6 @@
 const fs = require('fs')
 const os = require('os')
-const co = require('co')
-const prompt = require('co-prompt')
+const inquirer = require('inquirer')
 const chalk = require('chalk')
 const figures = require('figures')
 const { osFilePath } = require('../../helpers/defaults')
@@ -11,15 +10,24 @@ module.exports = function() {
     console.log(chalk.yellowBright('setup already done'))
     process.exit(0)
   } else {
-    co(function *(){
-      var os = yield prompt('what is your Operating system(ubuntu/fedora)?: ')
-      var arch = yield prompt('what architecture is it(32/64)?: ')
-      var OS = {
-        os,
-        arch
+    inquirer.prompt([
+      {
+        type: 'list',
+        name: 'os',
+        message: 'operating system',
+        choices: ['ubuntu', 'fedora', 'redhat', 'arch', 'suse', 'mint', 'win7', 'win8', 'win10', 'macOS']
+      },
+      {
+        type: 'list',
+        name: 'arch',
+        message: 'architecture',
+        choices: ['32', '64'],
+        default: '64'
       }
+    ])
+    .then(answers => {
       fs.mkdirSync(osFilePath)
-      fs.writeFile(osFilePath + '/rsm.json', JSON.stringify(OS, null, 2), (err) => {
+      fs.writeFile(osFilePath + '/rsm.json', JSON.stringify(answers, null, 2), (err) => {
         if (err) throw err
         console.log(chalk.greenBright(`setup done successfully ${figures.tick}`))
         process.exit(0)
