@@ -5,6 +5,6 @@ Rabbit Software Manager cli tool
 ## TODO
 
 - [ ] interactive setup/init
-- [ ] commands execution list
+- [x] commands execution list
 - [ ] update-notifier
 - [ ] spinners and loaders

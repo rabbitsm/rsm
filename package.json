@@ -16,6 +16,7 @@
     "co-prompt": "^1.0.0",
     "commander": "^2.15.1",
     "figures": "^2.0.0",
+    "inquirer": "^6.0.0",
     "listr": "^0.14.1",
     "shelljs": "^0.8.2",
     "superagent": "^3.8.3"
