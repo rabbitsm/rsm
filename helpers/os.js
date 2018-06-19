@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chalk = require('chalk')
 const { osFilePath } = require('./defaults')
 
 if(fs.existsSync(osFilePath + '/rsm.json')) {
@@ -7,8 +8,8 @@ if(fs.existsSync(osFilePath + '/rsm.json')) {
   var os = osInfo.os
   var arch = osInfo.arch
 } else {
-  console.error('no information about the OS found')
-  console.log('run `rsm setup`')
+  console.error(chalk.redBright('no information about the OS found'))
+  console.log(`run ${chalk.yellowBright('rsm setup')}`)
   process.exit(0)
 }
 

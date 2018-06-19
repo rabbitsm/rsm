@@ -1,6 +1,8 @@
 const fs = require('fs')
 const request = require('superagent')
 const authorer = require('authorer')
+const chalk = require('chalk')
+const figures = require('figures')
 const { apiEndPoint } = require('../../helpers/defaults')
 
 module.exports = function(cmd) {
@@ -11,25 +13,25 @@ module.exports = function(cmd) {
       var rsmData = JSON.parse(data)
       if(rsmData.author) rsmData.author = authorer(rsmData.author)
       if(!rsmData.name) {
-        console.error('name is required')
+        console.error(chalk.redBright('name is required'))
         process.exit(0)
       }
       if(!rsmData.version) {
-        console.error('version is required')
+        console.error(chalk.redBright('version is required'))
         process.exit(0)
       }
 
-      console.log(`Publishing ${rsmData.name} version ${rsmData.version}`)
+      console.log(chalk.blueBright(`Publishing ${rsmData.name} version ${rsmData.version}`))
       request
         .post(`${apiEndPoint}/item`)
         .send(rsmData)
         .set('accept', 'json')
         .end((err, res) => {
           if (res.status == 400) {
-            console.error(`${rsmData.name} with version ${rsmData.version} already exists in the registry`)
+            console.error(chalk.redBright(`${rsmData.name} with version ${rsmData.version} already exists in the registry`))
             process.exit(0)
           }
-          console.log(`${res.body.itemName} publish on the registry`)
+          console.log(chalk.greenBright(`${res.body.itemName} publish on the registry ${figures.tick}`))
         })
     })
   } else {

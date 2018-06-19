@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "authorer": "^0.0.2",
+    "chalk": "^2.4.1",
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
     "commander": "^2.15.1",
+    "figures": "^2.0.0",
     "shelljs": "^0.8.2",
     "superagent": "^3.8.3"
   }
